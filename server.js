@@ -4,7 +4,7 @@ const app = express();
 const config = require('dotenv').config();
 const cors = require('cors');
 
-const port = 8000;
+const port = 8080;
 
 app.use(bodyParser.json());
 
@@ -13,7 +13,7 @@ app.options('*', cors());
 
 app.use('/', require('./route'));
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
     console.log('Running on ' + port);
 }); 
 
